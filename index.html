@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanso — Premium AI Cooking Concierge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo" id="logo-button">k a n s o</div>
+      <div class="header-actions">
+        <span class="api-status-badge" id="api-status-badge">Demo Mode</span>
+        <button class="settings-toggle" id="settings-toggle" aria-label="Settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="app-main" id="app-container">
+
+    <!-- SCREEN 1: Apple-style Landing Page -->
+    <section class="screen active" id="screen-landing">
+      <div class="landing-hero animate-fade-in">
+        <h1 class="hero-title">
+          Your day.<br>
+          <span class="muted-title">Perfectly planned.</span>
+        </h1>
+        <p class="hero-subtitle">
+          An AI cooking companion that plans your meals around your schedule, budget and kitchen.
+        </p>
+        
+        <div class="cta-group">
+          <button class="btn btn-primary" id="btn-start">Plan My Day</button>
+          <button class="btn btn-secondary" id="btn-demo">See Demo</button>
+        </div>
+
+        <div class="feature-cards">
+          <div class="feature-card">
+            <span class="feature-emoji">⏱</span>
+            <div class="feature-text">
+              <h3>Saves Time</h3>
+              <p>Recipes matched to daily schedule limits.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-emoji">💰</span>
+            <div class="feature-text">
+              <h3>Saves Money</h3>
+              <p>Smart budgeting with pantry-first cooking.</p>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-emoji">🌱</span>
+            <div class="feature-text">
+              <h3>Reduces Food Waste</h3>
+              <p>Generates menus from scanning expiring food.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: Conversational Onboarding - Step 1: Schedule -->
+    <section class="screen" id="screen-step-schedule">
+      <div class="onboarding-container animate-fade-in">
+        <div class="progress-bar-container">
+          <div class="progress-fill" style="width: 25%;"></div>
+        </div>
+        <h2 class="section-title">How does today look?</h2>
+        <p class="section-subtitle-small">Select the activity baseline that sets your cooking prep limit.</p>
+        
+        <div class="options-grid-single">
+          <button class="option-card" data-value="Busy">
+            <div class="option-meta">
+              <span class="option-label">Busy</span>
+              <span class="option-description">Quick meals under 15 minutes of prep</span>
+            </div>
+          </button>
+          <button class="option-card" data-value="Working">
+            <div class="option-meta">
+              <span class="option-label">Working</span>
+              <span class="option-description">Structured meals around active schedules</span>
+            </div>
+          </button>
+          <button class="option-card" data-value="Gym">
+            <div class="option-meta">
+              <span class="option-label">Gym</span>
+              <span class="option-description">Higher caloric efficiency and recovery meals</span>
+            </div>
+          </button>
+          <button class="option-card" data-value="Family Dinner">
+            <div class="option-meta">
+              <span class="option-label">Family Dinner</span>
+              <span class="option-description">Generous portions, moderate cook times</span>
+            </div>
+          </button>
+          <button class="option-card" data-value="Friends Coming">
+            <div class="option-meta">
+              <span class="option-label">Friends Coming</span>
+              <span class="option-description">Impressive yet minimal hassle platters</span>
+            </div>
+          </button>
+          <button class="option-card" data-value="Relaxing">
+            <div class="option-meta">
+              <span class="option-label">Relaxing</span>
+              <span class="option-description">Slow cooking, exploration recipes</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="navigation-group">
+          <button class="btn btn-secondary btn-back" id="btn-schedule-back">Back</button>
+          <button class="btn btn-primary" id="btn-schedule-next" disabled>Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: Conversational Onboarding - Step 2: Vibe/Mood -->
+    <section class="screen" id="screen-step-vibe">
+      <div class="onboarding-container animate-fade-in">
+        <div class="progress-bar-container">
+          <div class="progress-fill" style="width: 50%;"></div>
+        </div>
+        <h2 class="section-title">How are you feeling today?</h2>
+        <p class="section-subtitle-small">Select multiple menu filters that match your craving.</p>
+        
+        <div class="options-grid-multi">
+          <button class="chips-card" data-value="Healthy">
+            <span class="vibe-title">Healthy</span>
+          </button>
+          <button class="chips-card" data-value="Comfort Food">
+            <span class="vibe-title">Comfort Food</span>
+          </button>
+          <button class="chips-card" data-value="High Protein">
+            <span class="vibe-title">High Protein</span>
+          </button>
+          <button class="chips-card" data-value="Vegetarian">
+            <span class="vibe-title">Vegetarian</span>
+          </button>
+          <button class="chips-card" data-value="Quick Meals">
+            <span class="vibe-title">Quick Meals</span>
+          </button>
+          <button class="chips-card" data-value="Budget Friendly">
+            <span class="vibe-title">Budget Friendly</span>
+          </button>
+        </div>
+
+        <div class="navigation-group">
+          <button class="btn btn-secondary btn-back" id="btn-vibe-back">Back</button>
+          <button class="btn btn-primary" id="btn-vibe-next">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: Conversational Onboarding - Step 3: Budget Slider -->
+    <section class="screen" id="screen-step-budget">
+      <div class="onboarding-container animate-fade-in">
+        <div class="progress-bar-container">
+          <div class="progress-fill" style="width: 75%;"></div>
+        </div>
+        <h2 class="section-title">Choose today's cooking budget.</h2>
+        <p class="section-subtitle-small">Select the cost cap for the combined grocery list.</p>
+        
+        <!-- Premium Budget Slider Layout -->
+        <div class="budget-slider-wrapper">
+          <div class="budget-value-display"><span class="currency">₹</span><span id="slider-val">800</span></div>
+          
+          <div class="slider-control-container">
+            <input type="range" min="0" max="3" value="2" step="1" class="premium-slider" id="budget-range">
+            <div class="slider-marks">
+              <span class="slider-mark">₹300</span>
+              <span class="slider-mark">₹500</span>
+              <span class="slider-mark">₹800</span>
+              <span class="slider-mark">₹1200</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="navigation-group">
+          <button class="btn btn-secondary btn-back" id="btn-budget-back">Back</button>
+          <button class="btn btn-primary" id="btn-budget-next">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 5: Conversational Onboarding - Step 4: Scanner -->
+    <section class="screen" id="screen-step-scanner">
+      <div class="onboarding-container animate-fade-in">
+        <div class="progress-bar-container">
+          <div class="progress-fill" style="width: 100%;"></div>
+        </div>
+        <h2 class="section-title">What ingredients do you have?</h2>
+        <p class="section-subtitle-small">Upload a photo of your fridge/pantry or enter ingredients manually.</p>
+        
+        <div class="scanner-layout">
+          <!-- Left side: Drop Zone -->
+          <div class="scanner-dropzone" id="scan-dropzone">
+            <input type="file" id="scan-file" accept="image/*" class="file-hidden">
+            <div class="dropzone-content">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="7.5 19.79 7.5 14.6 3 12"/><polyline points="21 12 16.5 14.6 16.5 19.79"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              <p class="dropzone-text">Upload a pantry photo</p>
+              <p class="dropzone-hint">Supports JPEG, PNG • Gemini will analyze</p>
+            </div>
+            
+            <!-- Scanning Laser Overlay -->
+            <div class="laser-scanner" id="laser-scanner">
+              <div class="laser-bar"></div>
+              <div class="scanning-status">Analyzing with Gemini Vision...</div>
+            </div>
+          </div>
+          
+          <!-- Right side: Manual Input + Chips List -->
+          <div class="scanner-manual-pannel">
+            <div class="manual-input-box">
+              <input type="text" id="manual-ingredient-input" placeholder="Type ingredients manually (e.g. eggs, milk)..." aria-label="Ingredient name">
+              <button class="btn btn-inline-add" id="btn-add-ingredient">Add</button>
+            </div>
+            
+            <div class="chips-heading-container">
+              <span class="chips-heading">Active Pantry Ingredients</span>
+              <button class="clear-all-ingredients" id="btn-clear-ingredients">Clear All</button>
+            </div>
+            
+            <div class="ingredients-chips-container" id="pantry-chips-container">
+              <!-- Dynamically populated or empty initially -->
+            </div>
+          </div>
+        </div>
+
+        <div class="navigation-group">
+          <button class="btn btn-secondary btn-back" id="btn-scanner-back">Back</button>
+          <button class="btn btn-primary" id="btn-generate-plan">Create Plan</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 6: Hypnotic Generation Loading -->
+    <section class="screen" id="screen-loading">
+      <div class="loading-container">
+        <!-- Visual breathing pulse circle -->
+        <div class="breathing-circle-wrapper">
+          <div class="breathing-circle"></div>
+          <div class="breathing-label">&nbsp;</div>
+        </div>
+        
+        <div class="loading-checklist" id="loading-checklist">
+          <div class="checklist-item" id="chk-planning">Planning...</div>
+          <div class="checklist-item" id="chk-pantry">Reading pantry</div>
+          <div class="checklist-item" id="chk-schedule">Understanding schedule</div>
+          <div class="checklist-item" id="chk-nutrition">Optimizing nutrition</div>
+          <div class="checklist-item" id="chk-budget">Calculating budget</div>
+          <div class="checklist-item" id="chk-waste">Reducing waste</div>
+          <div class="checklist-item" id="chk-finalizing">Finalizing menu</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 7: Dashboard State -->
+    <section class="screen" id="screen-dashboard">
+      <div class="dashboard-container animate-fade-in">
+        
+        <div class="dashboard-header-row">
+          <div>
+            <h1 class="dashboard-title">Today's Plan</h1>
+            <p class="dashboard-subtitle" id="dashboard-subtitle-text">Custom meal schedule matching your day context</p>
+          </div>
+          <button class="btn btn-secondary btn-small" id="btn-restart-flow">New Plan</button>
+        </div>
+
+        <!-- Meals Section -->
+        <div class="meals-grid" id="meals-grid-container">
+          <!-- Dynamically generated Breakfast, Lunch, Dinner cards -->
+        </div>
+
+        <!-- Bottom details splitting between Summary Analytics & Grocery List -->
+        <div class="dashboard-grid-bottom">
+          
+          <!-- Summary/Nutrients Analytics Column -->
+          <div class="analytics-card">
+            <h2 class="sub-section-title">Plan Summary & Analytics</h2>
+            
+            <div class="stats-grid">
+              <div class="stat-box">
+                <span class="stat-label">Today's Budget</span>
+                <span class="stat-value" id="stat-max-budget">₹800</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Estimated Cost</span>
+                <span class="stat-value" id="stat-est-cost">₹450</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Money Saved</span>
+                <span class="stat-value text-green" id="stat-money-saved">₹350</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Food Waste Prevented</span>
+                <span class="stat-value text-green" id="stat-waste-prevented">1.2 kg</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Protein Total</span>
+                <span class="stat-value" id="stat-protein-total">98g</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Calories Total</span>
+                <span class="stat-value" id="stat-calories-total">1,850 kcal</span>
+              </div>
+            </div>
+            
+            <!-- Overall plan reasoning -->
+            <div class="reasoning-pannel mt-4">
+              <h4 class="reasoning-heading">AI Planner Rationale</h4>
+              <p class="reasoning-text" id="dashboard-reasoning-text">Generating details...</p>
+            </div>
+          </div>
+
+          <!-- Grocery List / Ingredients Board -->
+          <div class="grocery-card">
+            <div class="grocery-header">
+              <h2 class="sub-section-title">Grocery Organizer</h2>
+              <div class="grocery-bill-badge">Bill: <span id="grocery-total-bill">₹0</span></div>
+            </div>
+            
+            <div class="grocery-layout">
+              <!-- Columns for: Need to Buy vs Already Have -->
+              <div class="grocery-column">
+                <h3 class="grocery-column-title">Need to Buy <span class="badge" id="grocery-buy-count">0</span></h3>
+                <div class="grocery-list-container" id="grocery-buy-list">
+                  <!-- categories populated dynamically -->
+                </div>
+              </div>
+              
+              <div class="grocery-delimiter"></div>
+
+              <div class="grocery-column">
+                <h3 class="grocery-column-title">Already Have <span class="badge badge-secondary" id="grocery-have-count">0</span></h3>
+                <div class="grocery-list-container already-have-list" id="grocery-have-list">
+                  <!-- items checked as already possessed -->
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Settings Slide-in Panel (Gemini API Configuration) -->
+  <div class="settings-sidebar-overlay" id="settings-overlay">
+    <div class="settings-sidebar">
+      <div class="settings-header">
+        <h2>Configuration</h2>
+        <button class="settings-close" id="settings-close" aria-label="Close">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      
+      <div class="settings-body">
+        <div class="form-group">
+          <label for="input-api-key">Gemini API Key</label>
+          <input type="password" id="input-api-key" placeholder="Enter your Gemini API Key..." class="text-input-field">
+          <div class="form-help">
+            Enter a Google AI Studio API key to fetch real Gemini plan generation & pantry scanner runs.
+          </div>
+        </div>
+        
+        <div class="api-key-actions mt-4">
+          <button class="btn btn-primary btn-full-width" id="btn-save-key">Save Settings</button>
+          <button class="btn btn-secondary btn-full-width mt-2" id="btn-clear-key">Clear Key (Go Back to Mock)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Substitution Modal -->
+  <div class="modal-overlay" id="substitution-overlay">
+    <div class="substitution-modal animate-scale-up">
+      <div class="modal-header">
+        <h3>AI Ingredient Substitution</h3>
+        <button class="modal-close" id="substitution-close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <p class="substitution-hint">Suggesting alternatives for <strong id="sub-target-ingredient">...</strong> in your plan.</p>
+        
+        <div class="substitution-query-loading" id="sub-loading">
+          <div class="spinner"></div>
+          <span class="sub-loading-msg">Gemini finding alternatives...</span>
+        </div>
+        
+        <div class="substitution-results" id="sub-results" style="display: none;">
+          <!-- Dynamically populated alternatives cards -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
